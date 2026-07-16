@@ -32,6 +32,16 @@ public final class TokenManager {
 
         System.out.println("api.email = " + ConfigManager.getProperty("api.email"));
         System.out.println("api.password exists = " + (ConfigManager.getProperty("api.password") != null));
+        
+        System.out.println("Email = " + System.getenv("API_EMAIL"));
+
+        String pwd = System.getenv("API_PASSWORD");
+
+        if (pwd == null) {
+            System.out.println("Password is NULL");
+        } else {
+            System.out.println("Password length = " + pwd.length());
+        }
 
         loginPayload.put(
                 "email",
