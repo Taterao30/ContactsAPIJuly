@@ -67,6 +67,11 @@ public final class ConfigManager {
         
         System.out.println("Looking for environment variable : " + environmentKey);
         System.out.println("Value : " + environmentValue);
+        
+        System.out.println(
+        	    "API_PASSWORD exists = " +
+        	    (System.getenv("API_PASSWORD") != null)
+        	);
 
         if (environmentValue != null &&
                 !environmentValue.isBlank()) {
