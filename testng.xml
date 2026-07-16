@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Contact API Suite" parallel="false">
+	<listeners>
+		<listener class-name="com.api.automation.listeners.ExtentReportListener" />
+	</listeners>
+	<test name="Contact CRUD Flow" preserve-order="true">
+
+		<classes>
+			<class name="com.api.automation.tests.LoginTest" />
+			<class name="com.api.automation.tests.CreateContactTest" />
+			<class name="com.api.automation.tests.GetContactTest" />
+			<class name="com.api.automation.tests.UpdateContactTest" />
+			<class name="com.api.automation.tests.PatchContactTest" />
+			<class name="com.api.automation.tests.DeleteContactTest" />
+		</classes>
+
+	</test>
+
+</suite>

@@ -1,0 +1,37 @@
+package com.api.automation.tests;
+
+import static org.hamcrest.Matchers.equalTo;
+
+import org.testng.annotations.Test;
+
+import com.api.automation.base.BaseAPI;
+import com.api.automation.base.BaseTest;
+import com.api.automation.endpoints.ContactEndpoints;
+import com.api.automation.payload.ContactPayload;
+import com.api.automation.utils.TestContext;
+import com.api.automation.utils.TokenManager;
+
+import io.restassured.response.Response;
+
+public class UpdateContactTest extends BaseTest {
+
+    private final BaseAPI api = new BaseAPI();
+
+    @Test
+    public void updateContact() {
+
+        Response response = api.put(
+                ContactEndpoints.CONTACT_BY_ID,
+                TestContext.getContactId(),
+                ContactPayload.updateContact(),
+                TokenManager.getToken());
+
+        response.then()
+                .statusCode(200)
+                .body("firstName", equalTo("Suraj"))
+                .body("city", equalTo("Mumbai"))
+                .body("phone", equalTo("9999999999"));
+
+        response.prettyPrint();
+    }
+}
