@@ -27,8 +27,11 @@ public final class TokenManager {
 
         Map<String, String> loginPayload = new HashMap<>();
         
-        System.out.println("API_EMAIL    = " + System.getenv("API_EMAIL"));
-        System.out.println("API_PASSWORD = " + System.getenv("API_PASSWORD"));
+        System.out.println("API_EMAIL env = " + System.getenv("API_EMAIL"));
+        System.out.println("API_PASSWORD env exists = " + (System.getenv("API_PASSWORD") != null));
+
+        System.out.println("api.email = " + ConfigManager.getProperty("api.email"));
+        System.out.println("api.password exists = " + (ConfigManager.getProperty("api.password") != null));
 
         loginPayload.put(
                 "email",
