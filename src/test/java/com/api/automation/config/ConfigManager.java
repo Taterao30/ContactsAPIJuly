@@ -2,19 +2,20 @@ package com.api.automation.config;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Locale;
 import java.util.Properties;
 
 public final class ConfigManager {
 
-    private static final Properties properties = new Properties();
-    private static final String environment;
+    private static final Properties PROPERTIES = new Properties();
+    private static final String ENVIRONMENT;
 
     static {
-        environment = System.getProperty("env", "qa")
+        ENVIRONMENT = System.getProperty("env", "qa")
                 .trim()
-                .toLowerCase();
+                .toLowerCase(Locale.ROOT);
 
-        String fileName = "config-" + environment + ".properties";
+        String fileName = "config-" + ENVIRONMENT + ".properties";
 
         try (InputStream inputStream =
                      ConfigManager.class
@@ -26,10 +27,13 @@ public final class ConfigManager {
                         "Configuration file not found: " + fileName);
             }
 
-            properties.load(inputStream);
+            PROPERTIES.load(inputStream);
+
+            System.out.println("Environment: " + ENVIRONMENT);
+            System.out.println("Configuration file: " + fileName);
 
         } catch (IOException exception) {
-            throw new RuntimeException(
+            throw new IllegalStateException(
                     "Unable to load configuration file: " + fileName,
                     exception);
         }
@@ -40,53 +44,84 @@ public final class ConfigManager {
     }
 
     public static String getEnvironment() {
-        return environment;
+        return ENVIRONMENT;
     }
 
     public static String getBaseUri() {
-        return getProperty("base.uri");
+        return getRequiredProperty("base.uri");
     }
 
     public static String getProperty(String key) {
+        validateKey(key);
 
-        // 1. Check Maven/JVM system property:
-        // -Dapi.email=value
+        // Priority 1: Maven/JVM property
+        // Example: -Dapi.email=value
         String systemValue = System.getProperty(key);
 
-        if (systemValue != null && !systemValue.isBlank()) {
+        if (hasText(systemValue)) {
             return systemValue.trim();
         }
 
-        // 2. Check operating-system or Jenkins environment variable:
-        // api.email becomes API_EMAIL
-        String environmentKey =
-                key.toUpperCase().replace(".", "_");
+        // Priority 2: Operating system/Jenkins environment variable
+        // api.email -> API_EMAIL
+        // api.password -> API_PASSWORD
+        String environmentKey = toEnvironmentVariable(key);
+        String environmentValue = System.getenv(environmentKey);
 
-        String environmentValue =
-                System.getenv(environmentKey);
-        
-        System.out.println("Looking for environment variable : " + environmentKey);
-        System.out.println("Value : " + environmentValue);
-        
-        System.out.println(
-        	    "API_PASSWORD exists = " +
-        	    (System.getenv("API_PASSWORD") != null)
-        	);
-
-        if (environmentValue != null &&
-                !environmentValue.isBlank()) {
-
+        if (hasText(environmentValue)) {
             return environmentValue.trim();
         }
 
-        // 3. Check config-qa.properties/config-uat.properties
-        String fileValue = properties.getProperty(key);
+        // Priority 3: Environment properties file
+        // config-qa.properties, config-uat.properties, etc.
+        String fileValue = PROPERTIES.getProperty(key);
 
-        if (fileValue != null && !fileValue.isBlank()) {
+        if (hasText(fileValue)) {
             return fileValue.trim();
         }
 
-        throw new IllegalStateException(
-                "Property not found: " + key);
+        return null;
+    }
+
+    public static String getRequiredProperty(String key) {
+        String value = getProperty(key);
+
+        if (!hasText(value)) {
+            String environmentKey = toEnvironmentVariable(key);
+
+            throw new IllegalStateException(
+                    "Required property is missing: " + key
+                            + ". Provide it using JVM property '-D"
+                            + key
+                            + "=value', Jenkins environment variable '"
+                            + environmentKey
+                            + "', or config-"
+                            + ENVIRONMENT
+                            + ".properties.");
+        }
+
+        return value;
+    }
+
+    public static boolean isAvailable(String key) {
+        return hasText(getProperty(key));
+    }
+
+    private static String toEnvironmentVariable(String key) {
+        return key.trim()
+                .toUpperCase(Locale.ROOT)
+                .replace('.', '_')
+                .replace('-', '_');
+    }
+
+    private static void validateKey(String key) {
+        if (!hasText(key)) {
+            throw new IllegalArgumentException(
+                    "Configuration key cannot be null or blank.");
+        }
+    }
+
+    private static boolean hasText(String value) {
+        return value != null && !value.isBlank();
     }
 }

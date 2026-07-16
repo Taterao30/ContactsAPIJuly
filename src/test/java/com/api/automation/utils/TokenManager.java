@@ -20,36 +20,19 @@ public final class TokenManager {
 
     public static synchronized String getToken() {
 
-        // Reuse the token if it is already generated
         if (token != null && !token.isBlank()) {
             return token;
         }
 
+        String email =
+                ConfigManager.getRequiredProperty("api.email");
+
+        String password =
+                ConfigManager.getRequiredProperty("api.password");
+
         Map<String, String> loginPayload = new HashMap<>();
-        
-        System.out.println("API_EMAIL env = " + System.getenv("API_EMAIL"));
-        System.out.println("API_PASSWORD env exists = " + (System.getenv("API_PASSWORD") != null));
-
-        System.out.println("api.email = " + ConfigManager.getProperty("api.email"));
-        System.out.println("api.password exists = " + (ConfigManager.getProperty("api.password") != null));
-        
-        System.out.println("Email = " + System.getenv("API_EMAIL"));
-
-        String pwd = System.getenv("API_PASSWORD");
-
-        if (pwd == null) {
-            System.out.println("Password is NULL");
-        } else {
-            System.out.println("Password length = " + pwd.length());
-        }
-
-        loginPayload.put(
-                "email",
-                ConfigManager.getProperty("api.email"));
-
-        loginPayload.put(
-                "password",
-                ConfigManager.getProperty("api.password"));
+        loginPayload.put("email", email);
+        loginPayload.put("password", password);
 
         Response response = RestAssured
                 .given()
