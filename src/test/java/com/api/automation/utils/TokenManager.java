@@ -26,6 +26,9 @@ public final class TokenManager {
         }
 
         Map<String, String> loginPayload = new HashMap<>();
+        
+        System.out.println("API_EMAIL    = " + System.getenv("API_EMAIL"));
+        System.out.println("API_PASSWORD = " + System.getenv("API_PASSWORD"));
 
         loginPayload.put(
                 "email",
