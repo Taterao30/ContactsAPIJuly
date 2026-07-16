@@ -64,6 +64,9 @@ public final class ConfigManager {
 
         String environmentValue =
                 System.getenv(environmentKey);
+        
+        System.out.println("Looking for environment variable : " + environmentKey);
+        System.out.println("Value : " + environmentValue);
 
         if (environmentValue != null &&
                 !environmentValue.isBlank()) {
