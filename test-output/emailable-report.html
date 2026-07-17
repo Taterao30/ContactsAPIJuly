@@ -8,41 +8,42 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">32</td><td></td><td></td></tr>
+<tr><th colspan="8">Contact API Suite</th></tr>
+<tr><td><a href="#t0">Contact CRUD Flow</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">6</td><td class="num">719</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.api.automation.tests.LoginTest</td><td><a href="#m0">verifyTokenGeneration</a></td><td rowspan="1">1784208553688</td><td rowspan="1">7</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Contact API Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Contact CRUD Flow &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.api.automation.tests.CreateContactTest</td><td><a href="#m0">createContact</a></td><td rowspan="1">1784295535861</td><td rowspan="1">6</td></tr><tr class="failedodd"><td rowspan="1">com.api.automation.tests.DeleteContactTest</td><td><a href="#m1">deleteContact</a></td><td rowspan="1">1784295535900</td><td rowspan="1">2</td></tr><tr class="failedeven"><td rowspan="1">com.api.automation.tests.GetContactTest</td><td><a href="#m2">getContactById</a></td><td rowspan="1">1784295535875</td><td rowspan="1">5</td></tr><tr class="failedodd"><td rowspan="1">com.api.automation.tests.LoginTest</td><td><a href="#m3">verifyTokenGeneration</a></td><td rowspan="1">1784295535533</td><td rowspan="1">223</td></tr><tr class="failedeven"><td rowspan="1">com.api.automation.tests.PatchContactTest</td><td><a href="#m4">patchContact</a></td><td rowspan="1">1784295535893</td><td rowspan="1">3</td></tr><tr class="failedodd"><td rowspan="1">com.api.automation.tests.UpdateContactTest</td><td><a href="#m5">updateContact</a></td><td rowspan="1">1784295535885</td><td rowspan="1">3</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.api.automation.tests.LoginTest#verifyTokenGeneration</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Property not found: api.email
-	at com.api.automation.config.ConfigManager.getProperty(ConfigManager.java:81)
-	at com.api.automation.utils.TokenManager.getToken(TokenManager.java:32)
-	at com.api.automation.tests.LoginTest.verifyTokenGeneration(LoginTest.java:14)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+<h2>Contact CRUD Flow</h2><h3 id="m0">com.api.automation.tests.CreateContactTest#createContact</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Required property is missing: api.email. Provide it using JVM property &apos;-Dapi.email=value&apos;, Jenkins environment variable &apos;API_EMAIL&apos;, or config-qa.properties.
+	at com.api.automation.config.ConfigManager.getRequiredProperty(ConfigManager.java:92)
+	at com.api.automation.utils.TokenManager.getToken(TokenManager.java:28)
+	at com.api.automation.tests.CreateContactTest.createContact(CreateContactTest.java:27)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.api.automation.tests.DeleteContactTest#deleteContact</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+	at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+	at com.api.automation.tests.DeleteContactTest.deleteContact(DeleteContactTest.java:20)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.api.automation.tests.GetContactTest#getContactById</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+	at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+	at com.api.automation.tests.GetContactTest.getContactById(GetContactTest.java:22)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.api.automation.tests.LoginTest#verifyTokenGeneration</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Required property is missing: api.email. Provide it using JVM property &apos;-Dapi.email=value&apos;, Jenkins environment variable &apos;API_EMAIL&apos;, or config-qa.properties.
+	at com.api.automation.config.ConfigManager.getRequiredProperty(ConfigManager.java:92)
+	at com.api.automation.utils.TokenManager.getToken(TokenManager.java:28)
+	at com.api.automation.tests.LoginTest.verifyTokenGeneration(LoginTest.java:14)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.api.automation.tests.PatchContactTest#patchContact</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+	at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+	at com.api.automation.tests.PatchContactTest.patchContact(PatchContactTest.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.api.automation.tests.UpdateContactTest#updateContact</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+	at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+	at com.api.automation.tests.UpdateContactTest.updateContact(UpdateContactTest.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -1,25 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="6" passed="0" failed="6" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-07-16T18:59:13 IST" name="Default suite" finished-at="2026-07-16T18:59:13 IST" duration-ms="32">
+  <suite started-at="2026-07-17T19:08:55 IST" name="Contact API Suite" finished-at="2026-07-17T19:08:55 IST" duration-ms="719">
     <groups>
     </groups>
-    <test started-at="2026-07-16T18:59:13 IST" name="Default test" finished-at="2026-07-16T18:59:13 IST" duration-ms="32">
+    <test started-at="2026-07-17T19:08:55 IST" name="Contact CRUD Flow" finished-at="2026-07-17T19:08:55 IST" duration-ms="719">
+      <class name="com.api.automation.tests.GetContactTest">
+        <test-method signature="getContactById()[pri:0, instance:com.api.automation.tests.GetContactTest@66c83fc8]" started-at="2026-07-17T19:08:55 IST" name="getContactById" finished-at="2026-07-17T19:08:55 IST" duration-ms="5" status="FAIL">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[Contact ID is not available. CreateContactTest must run first.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+at com.api.automation.tests.GetContactTest.getContactById(GetContactTest.java:22)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getContactById -->
+      </class> <!-- com.api.automation.tests.GetContactTest -->
+      <class name="com.api.automation.tests.DeleteContactTest">
+        <test-method signature="deleteContact()[pri:0, instance:com.api.automation.tests.DeleteContactTest@f339eae]" started-at="2026-07-17T19:08:55 IST" name="deleteContact" finished-at="2026-07-17T19:08:55 IST" duration-ms="2" status="FAIL">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[Contact ID is not available. CreateContactTest must run first.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+at com.api.automation.tests.DeleteContactTest.deleteContact(DeleteContactTest.java:20)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteContact -->
+      </class> <!-- com.api.automation.tests.DeleteContactTest -->
+      <class name="com.api.automation.tests.PatchContactTest">
+        <test-method signature="patchContact()[pri:0, instance:com.api.automation.tests.PatchContactTest@621f89b8]" started-at="2026-07-17T19:08:55 IST" name="patchContact" finished-at="2026-07-17T19:08:55 IST" duration-ms="3" status="FAIL">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[Contact ID is not available. CreateContactTest must run first.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+at com.api.automation.tests.PatchContactTest.patchContact(PatchContactTest.java:25)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- patchContact -->
+      </class> <!-- com.api.automation.tests.PatchContactTest -->
+      <class name="com.api.automation.tests.CreateContactTest">
+        <test-method signature="createContact()[pri:0, instance:com.api.automation.tests.CreateContactTest@60d1b21f]" started-at="2026-07-17T19:08:55 IST" name="createContact" finished-at="2026-07-17T19:08:55 IST" duration-ms="6" status="FAIL">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[Required property is missing: api.email. Provide it using JVM property '-Dapi.email=value', Jenkins environment variable 'API_EMAIL', or config-qa.properties.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalStateException: Required property is missing: api.email. Provide it using JVM property '-Dapi.email=value', Jenkins environment variable 'API_EMAIL', or config-qa.properties.
+at com.api.automation.config.ConfigManager.getRequiredProperty(ConfigManager.java:92)
+at com.api.automation.utils.TokenManager.getToken(TokenManager.java:28)
+at com.api.automation.tests.CreateContactTest.createContact(CreateContactTest.java:27)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createContact -->
+      </class> <!-- com.api.automation.tests.CreateContactTest -->
       <class name="com.api.automation.tests.LoginTest">
-        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:com.api.automation.tests.LoginTest@229f66ed]" started-at="2026-07-16T18:59:13 IST" name="setUpSuite" finished-at="2026-07-16T18:59:13 IST" duration-ms="296" status="PASS">
+        <test-method is-config="true" signature="setUpSuite()[pri:0, instance:com.api.automation.tests.LoginTest@2df3c564]" started-at="2026-07-17T19:08:54 IST" name="setUpSuite" finished-at="2026-07-17T19:08:55 IST" duration-ms="662" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpSuite -->
-        <test-method signature="verifyTokenGeneration()[pri:0, instance:com.api.automation.tests.LoginTest@229f66ed]" started-at="2026-07-16T18:59:13 IST" name="verifyTokenGeneration" finished-at="2026-07-16T18:59:13 IST" duration-ms="7" status="FAIL">
+        <test-method signature="verifyTokenGeneration()[pri:0, instance:com.api.automation.tests.LoginTest@2df3c564]" started-at="2026-07-17T19:08:55 IST" name="verifyTokenGeneration" finished-at="2026-07-17T19:08:55 IST" duration-ms="223" status="FAIL">
           <exception class="java.lang.IllegalStateException">
             <message>
-              <![CDATA[Property not found: api.email]]>
+              <![CDATA[Required property is missing: api.email. Provide it using JVM property '-Dapi.email=value', Jenkins environment variable 'API_EMAIL', or config-qa.properties.]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IllegalStateException: Property not found: api.email
-at com.api.automation.config.ConfigManager.getProperty(ConfigManager.java:81)
-at com.api.automation.utils.TokenManager.getToken(TokenManager.java:32)
+              <![CDATA[java.lang.IllegalStateException: Required property is missing: api.email. Provide it using JVM property '-Dapi.email=value', Jenkins environment variable 'API_EMAIL', or config-qa.properties.
+at com.api.automation.config.ConfigManager.getRequiredProperty(ConfigManager.java:92)
+at com.api.automation.utils.TokenManager.getToken(TokenManager.java:28)
 at com.api.automation.tests.LoginTest.verifyTokenGeneration(LoginTest.java:14)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
@@ -54,6 +227,49 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
           </reporter-output>
         </test-method> <!-- verifyTokenGeneration -->
       </class> <!-- com.api.automation.tests.LoginTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="com.api.automation.tests.UpdateContactTest">
+        <test-method signature="updateContact()[pri:0, instance:com.api.automation.tests.UpdateContactTest@546621c4]" started-at="2026-07-17T19:08:55 IST" name="updateContact" finished-at="2026-07-17T19:08:55 IST" duration-ms="3" status="FAIL">
+          <exception class="java.lang.IllegalStateException">
+            <message>
+              <![CDATA[Contact ID is not available. CreateContactTest must run first.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IllegalStateException: Contact ID is not available. CreateContactTest must run first.
+at com.api.automation.utils.TestContext.getContactId(TestContext.java:23)
+at com.api.automation.tests.UpdateContactTest.updateContact(UpdateContactTest.java:25)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IllegalStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateContact -->
+      </class> <!-- com.api.automation.tests.UpdateContactTest -->
+    </test> <!-- Contact CRUD Flow -->
+  </suite> <!-- Contact API Suite -->
 </testng-results>

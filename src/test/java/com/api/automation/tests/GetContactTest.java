@@ -21,15 +21,18 @@ public class GetContactTest extends BaseTest {
 
         String contactId = TestContext.getContactId();
 
-        Response response = api.getById(
+        Response response = api.get(
                 ContactEndpoints.CONTACT_BY_ID,
                 contactId,
-                TokenManager.getToken());
+                TokenManager.getToken()
+        );
 
         response.then()
                 .statusCode(200)
                 .body("_id", equalTo(contactId));
 
         response.prettyPrint();
+        
+        System.out.println("Checking git new token");
     }
 }

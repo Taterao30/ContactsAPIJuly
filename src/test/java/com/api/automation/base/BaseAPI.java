@@ -1,7 +1,7 @@
 package com.api.automation.base;
 
-import static io.restassured.RestAssured.given;
-
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -10,67 +10,132 @@ public class BaseAPI {
 
     private RequestSpecification getRequest(String token) {
 
-        return given()
+        RequestSpecification request = RestAssured
+                .given()
+                .filter(new AllureRestAssured())
                 .contentType(ContentType.JSON)
-                .accept(ContentType.JSON)
-                .header("Authorization", "Bearer " + token)
-                .log()
-                .ifValidationFails();
+                .accept(ContentType.JSON);
+
+        if (token != null && !token.trim().isEmpty()) {
+            request.header("Authorization", "Bearer " + token);
+        }
+
+        return request;
     }
+
+    // ==================== GET ====================
 
     public Response get(String endpoint, String token) {
 
         return getRequest(token)
                 .when()
-                .get(endpoint);
+                .get(endpoint)
+                .then()
+                .extract()
+                .response();
     }
 
-    public Response getById(
-            String endpoint,
-            String id,
-            String token) {
+    public Response get(String endpoint, String id, String token) {
 
         return getRequest(token)
                 .pathParam("id", id)
                 .when()
-                .get(endpoint);
+                .get(endpoint)
+                .then()
+                .extract()
+                .response();
     }
+
+    // ==================== POST ====================
 
     public Response post(
             String endpoint,
-            Object requestBody,
+            Object payload,
             String token) {
 
         return getRequest(token)
-                .body(requestBody)
+                .body(payload)
                 .when()
-                .post(endpoint);
+                .post(endpoint)
+                .then()
+                .extract()
+                .response();
+    }
+
+    // ==================== PUT ====================
+
+    public Response put(
+            String endpoint,
+            Object payload,
+            String token) {
+
+        return getRequest(token)
+                .body(payload)
+                .when()
+                .put(endpoint)
+                .then()
+                .extract()
+                .response();
     }
 
     public Response put(
             String endpoint,
             String id,
-            Object requestBody,
+            Object payload,
             String token) {
 
         return getRequest(token)
                 .pathParam("id", id)
-                .body(requestBody)
+                .body(payload)
                 .when()
-                .put(endpoint);
+                .put(endpoint)
+                .then()
+                .extract()
+                .response();
+    }
+
+    // ==================== PATCH ====================
+
+    public Response patch(
+            String endpoint,
+            Object payload,
+            String token) {
+
+        return getRequest(token)
+                .body(payload)
+                .when()
+                .patch(endpoint)
+                .then()
+                .extract()
+                .response();
     }
 
     public Response patch(
             String endpoint,
             String id,
-            Object requestBody,
+            Object payload,
             String token) {
 
         return getRequest(token)
                 .pathParam("id", id)
-                .body(requestBody)
+                .body(payload)
                 .when()
-                .patch(endpoint);
+                .patch(endpoint)
+                .then()
+                .extract()
+                .response();
+    }
+
+    // ==================== DELETE ====================
+
+    public Response delete(String endpoint, String token) {
+
+        return getRequest(token)
+                .when()
+                .delete(endpoint)
+                .then()
+                .extract()
+                .response();
     }
 
     public Response delete(
@@ -81,6 +146,9 @@ public class BaseAPI {
         return getRequest(token)
                 .pathParam("id", id)
                 .when()
-                .delete(endpoint);
+                .delete(endpoint)
+                .then()
+                .extract()
+                .response();
     }
 }
