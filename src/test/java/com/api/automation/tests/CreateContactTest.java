@@ -20,6 +20,8 @@ public class CreateContactTest extends BaseTest {
 
     @Test
     public void createContact() {
+    	
+    	System.out.println("testing the webhook");
 
         Response response = api.post(
                 ContactEndpoints.CONTACTS,
